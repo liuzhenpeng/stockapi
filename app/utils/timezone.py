@@ -5,7 +5,7 @@ import zoneinfo
 from datetime import datetime
 from datetime import timezone as datetime_timezone
 
-from config.config import settings
+from app.config.config import settings
 
 
 class TimeZone:

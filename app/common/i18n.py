@@ -10,7 +10,7 @@ from typing import Any
 import yaml
 
 
-from config.config import settings, LOCALE_DIR
+from app.config.config import settings, LOCALE_DIR
 
 
 class I18n:

@@ -6,8 +6,8 @@
 """
 from fastapi import APIRouter
 
-from api import stock
+from app.api import stock
 
 api_router = APIRouter(prefix="/api")
-api_router.include_router(stock.router,  tags=["baostock"])
+api_router.include_router(stock.router, tags=["baostock"])
 

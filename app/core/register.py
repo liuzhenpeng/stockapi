@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
-from config.config import settings
-from core.router import router
+from app.config.config import settings
+from app.core.router import router
 
-from utils.log import setup_logging, set_custom_logfile
+from app.utils.log import setup_logging, set_custom_logfile
 
 
 def register_app() -> FastAPI:

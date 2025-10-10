@@ -1,9 +1,9 @@
 import baostock as bs
 from fastapi import APIRouter
 
-from common.response.response_code import CustomErrorCode, CustomCodeBase, CustomResponse
-from utils.log import log
-from common.response.response_schema import response_base, ResponseSchemaModel
+from app.common.response.response_code import CustomErrorCode, CustomResponse
+from app.utils.log import log
+from app.common.response.response_schema import response_base
 
 router = APIRouter(prefix='/baostock')
 

@@ -4,7 +4,7 @@
 @Author: binkuolo
 @Des: 路由聚合
 """
-from api.api import api_router
+from app.api.api import api_router
 from fastapi import APIRouter
 
 

@@ -10,8 +10,8 @@ from asgi_correlation_id import correlation_id
 from loguru import logger
 
 
-from config.config import settings, LOG_DIR
-from utils.timezone import timezone
+from app.config.config import settings, LOG_DIR
+from app.utils.timezone import timezone
 
 LOG_FORMAT: str = (
     '<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</> |<level>{level: <8}</level>| <cyan>{name}:{function}:{line}</cyan> |  <cyan>{correlation_id}</> | <lvl>{message}</>'
