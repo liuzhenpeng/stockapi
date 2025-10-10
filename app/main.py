@@ -1,6 +1,6 @@
 import uvicorn
 
-from api import stock
+from app.api import stock
 from core.register import register_app
 
 application = register_app()
