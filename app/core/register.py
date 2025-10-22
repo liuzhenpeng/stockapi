@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from app.config.config import settings
 from app.core.router import router
-
+from app.api import stock
 from app.utils.log import setup_logging, set_custom_logfile
 
 
@@ -19,6 +19,7 @@ def register_app() -> FastAPI:
     #注册路由
     application.include_router(router)
     register_logger()
+    stock.bsLogin()
 
     return application
 

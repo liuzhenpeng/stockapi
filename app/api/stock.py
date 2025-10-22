@@ -54,3 +54,22 @@ def bsLogout():
 async def test(code: str):
     log.error(f"你好:{code}")
     return response_base.fail(res=CustomErrorCode.CAPTCHA_ERROR, data=code)
+
+
+@router.get("/getStocks")
+async def getStocks():
+    #### 获取证券信息 ####
+    rs = bs.query_all_stock(day="2025-10-21")
+    print('query_all_stock respond error_code:' + rs.error_code)
+    print('query_all_stock respond  error_msg:' + rs.error_msg)
+
+    #### 打印结果集 ####
+    data_list = []
+    while (rs.error_code == '0') & rs.next():
+        # 获取一条记录，将记录合并在一起
+        data_list.append(rs.get_row_data())
+
+    for data in data_list:
+        print(data)
+
+    return response_base.success(data="获取成功")
