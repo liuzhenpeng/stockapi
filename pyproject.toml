@@ -18,3 +18,7 @@ dependencies = [
     "starlette==0.48.0",
     "uvicorn==0.37.0",
 ]
+
+[[tool.uv.index]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple"
