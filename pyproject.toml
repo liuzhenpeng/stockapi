@@ -19,6 +19,9 @@ dependencies = [
     "starlette==0.48.0",
     "uvicorn==0.37.0",
     "asyncmy>=0.2.10",
+    "pymysql>=1.1.2",
+    "sqlalchemy-crud-plus>=1.12.1",
+    "sqlparse>=0.5.3",
 ]
 
 [[tool.uv.index]]

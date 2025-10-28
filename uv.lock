@@ -702,6 +702,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pymysql"
+version = "1.1.2"
+source = { registry = "https://mirrors.aliyun.com/pypi/simple" }
+sdist = { url = "https://mirrors.aliyun.com/pypi/packages/f5/ae/1fe3fcd9f959efa0ebe200b8de88b5a5ce3e767e38c7ac32fb179f16a388/pymysql-1.1.2.tar.gz", hash = "sha256:4961d3e165614ae65014e361811a724e2044ad3ea3739de9903ae7c21f539f03" }
+wheels = [
+    { url = "https://mirrors.aliyun.com/pypi/packages/7c/4c/ad33b92b9864cbde84f259d5df035a6447f91891f5be77788e2a3892bce3/pymysql-1.1.2-py3-none-any.whl", hash = "sha256:e6b1d89711dd51f8f74b1631fe08f039e7d76cf67a42a323d3178f0f25762ed9" },
+]
+
+[[package]]
 name = "pyparsing"
 version = "3.2.5"
 source = { registry = "https://mirrors.aliyun.com/pypi/simple" }
@@ -841,6 +850,28 @@ wheels = [
 ]
 
 [[package]]
+name = "sqlalchemy-crud-plus"
+version = "1.12.1"
+source = { registry = "https://mirrors.aliyun.com/pypi/simple" }
+dependencies = [
+    { name = "pydantic" },
+    { name = "sqlalchemy" },
+]
+sdist = { url = "https://mirrors.aliyun.com/pypi/packages/83/78/9e2f21a2e2e39f99276d8d9c13906ed4fc9c7d97e880cf65fd91492b12da/sqlalchemy_crud_plus-1.12.1.tar.gz", hash = "sha256:55b36ae9815192ae6529b0fa5917559ac446608dbc9ec29d183cfba6c09a6271" }
+wheels = [
+    { url = "https://mirrors.aliyun.com/pypi/packages/c4/97/0cbb91099e38e3c87e80d9b044709e076cf31529d9e749155aafa6797bca/sqlalchemy_crud_plus-1.12.1-py3-none-any.whl", hash = "sha256:abbd972e7b2ab1dc7f51dd4229bcc0f66163eae138f403dc044fecf37911ba38" },
+]
+
+[[package]]
+name = "sqlparse"
+version = "0.5.3"
+source = { registry = "https://mirrors.aliyun.com/pypi/simple" }
+sdist = { url = "https://mirrors.aliyun.com/pypi/packages/e5/40/edede8dd6977b0d3da179a342c198ed100dd2aba4be081861ee5911e4da4/sqlparse-0.5.3.tar.gz", hash = "sha256:09f67787f56a0b16ecdbde1bfc7f5d9c3371ca683cfeaa8e6ff60b4807ec9272" }
+wheels = [
+    { url = "https://mirrors.aliyun.com/pypi/packages/a9/5c/bfd6bd0bf979426d405cc6e71eceb8701b148b16c21d2dc3c261efc61c7b/sqlparse-0.5.3-py3-none-any.whl", hash = "sha256:cf2196ed3418f3ba5de6af7e82c694a9fbdbfecccdfc72e281548517081f16ca" },
+]
+
+[[package]]
 name = "starlette"
 version = "0.48.0"
 source = { registry = "https://mirrors.aliyun.com/pypi/simple" }
@@ -867,9 +898,12 @@ dependencies = [
     { name = "msgspec" },
     { name = "pandas" },
     { name = "pydantic" },
+    { name = "pymysql" },
     { name = "pytest" },
     { name = "pyyaml" },
     { name = "sqlalchemy" },
+    { name = "sqlalchemy-crud-plus" },
+    { name = "sqlparse" },
     { name = "starlette" },
     { name = "uvicorn" },
 ]
@@ -885,9 +919,12 @@ requires-dist = [
     { name = "msgspec", specifier = "==0.19.0" },
     { name = "pandas", specifier = "==2.3.3" },
     { name = "pydantic", specifier = "==2.11.10" },
+    { name = "pymysql", specifier = ">=1.1.2" },
     { name = "pytest", specifier = "==8.4.2" },
     { name = "pyyaml", specifier = "==6.0.3" },
     { name = "sqlalchemy", specifier = "==2.0.43" },
+    { name = "sqlalchemy-crud-plus", specifier = ">=1.12.1" },
+    { name = "sqlparse", specifier = ">=0.5.3" },
     { name = "starlette", specifier = "==0.48.0" },
     { name = "uvicorn", specifier = "==0.37.0" },
 ]
