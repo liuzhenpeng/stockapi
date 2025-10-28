@@ -2,8 +2,11 @@ import baostock as bs
 from fastapi import APIRouter
 
 from app.common.response.response_code import CustomErrorCode, CustomResponse
+from app.model.kduser import User
+from app.models.db import CurrentSession
 from app.utils.log import log
-from app.common.response.response_schema import response_base
+from app.common.response.response_schema import response_base, ResponseSchemaModel
+from app.service.user_service import user_service
 
 router = APIRouter(prefix='/baostock')
 
@@ -73,3 +76,12 @@ async def getStocks():
         print(data)
 
     return response_base.success(data="获取成功")
+
+
+@router.get("/fileinfo")
+async def fileinfo(
+    db: CurrentSession,
+    id: int,
+    ) -> ResponseSchemaModel[User]:
+        data = await user_service.get_fileinfo(db=db, id=id)
+        return response_base.success(data=data)

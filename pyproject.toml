@@ -14,5 +14,10 @@ dependencies = [
     "PyYAML==6.0.3",
     "SQLAlchemy==2.0.43",
     "starlette==0.48.0",
-    "uvicorn==0.37.0"
+    "uvicorn==0.37.0",
+    "pymysql>=1.1.2",
+    "sqlalchemy-crud-plus>=1.12.1",
+    "sqlalchemy[asyncio]>=2.0.44",
+    "sqlparse>=0.5.3",
+    "asyncmy==0.2.10",
 ]

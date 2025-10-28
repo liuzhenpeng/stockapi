@@ -9,6 +9,7 @@ import os
 from typing import List
 from pathlib import Path
 from pydantic.v1 import BaseSettings
+from typing import Any, Literal
 
 # 项目根目录
 BASE_PATH = Path(__file__).resolve().parent.parent
@@ -25,6 +26,20 @@ class Config(BaseSettings):
     # 项目信息
     VERSION: str = "0.0.1"
     PROJECT_NAME: str = "fasdapi"
+
+    # .env 数据库
+    DATABASE_TYPE: Literal['mysql'] = 'mysql'
+    DATABASE_HOST: str = '10.11.12.68'
+    DATABASE_PORT: int = 3306
+    DATABASE_USER: str  = 'root'
+    DATABASE_PASSWORD: str = 'Mysql@2018'
+
+    # 数据库
+    DATABASE_ECHO: bool | Literal['debug'] = False
+    DATABASE_POOL_ECHO: bool | Literal['debug'] = False
+    DATABASE_SCHEMA: str = 'kdrive'
+    DATABASE_CHARSET: str = 'utf8mb4'
+
     # Session
     SECRET_KEY = "session"
     SESSION_COOKIE = "session_id"
