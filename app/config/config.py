@@ -74,6 +74,8 @@ class Config(BaseSettings):
 
     # I18n 配置
     I18N_DEFAULT_LANGUAGE: str = 'zh-CN'
+    #  BaoStock 登录配置
+    BAOSTOCK_LOGIN = False
 
 
 settings = Config()

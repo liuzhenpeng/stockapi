@@ -19,7 +19,9 @@ def register_app() -> FastAPI:
     #注册路由
     application.include_router(router)
     register_logger()
-    stock.bsLogin()
+
+    if settings.BAOSTOCK_LOGIN:
+        stock.bsLogin()
 
     return application
 
