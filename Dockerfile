@@ -6,6 +6,8 @@ RUN groupadd --system --gid 999 nonroot \
 
 WORKDIR /stockapi
 
+ENV ENV=pro
+
 ENV UV_COMPILE_BYTECODE=1
 
 ENV UV_LINK_MODE=copy

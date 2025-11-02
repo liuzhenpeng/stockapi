@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from app.common.exception import errors
 
 from app.common.dataclasses import SnowflakeInfo
-from app.config.config import settings
+from app.config import settings
 
 
 @dataclass(frozen=True)

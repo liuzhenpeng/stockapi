@@ -1,6 +1,8 @@
 import  pytest
 from app.api import stock
 import matplotlib.pyplot as plt
+
+from app.config import settings
 from tests.test_initapp import registerapp
 
 import pandas as pd
@@ -12,6 +14,7 @@ def test_stock(registerapp):
 @pytest.mark.asyncio
 async def test_stock_t(registerapp):
     print("\n")
+    print(settings.PROJECT_NAME)
     result = await stock.test("黑暗时代是")
     print("获取到的数据：", result)
 

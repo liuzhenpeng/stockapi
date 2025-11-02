@@ -6,7 +6,7 @@ from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy.ext.asyncio import AsyncAttrs
 from sqlalchemy.orm import DeclarativeBase, Mapped, MappedAsDataclass, declared_attr, mapped_column
 
-from app.config.config import settings
+from app.config import settings
 from app.utils.snowflake import snowflake
 from app.utils.timezone import timezone
 

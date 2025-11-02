@@ -10,7 +10,8 @@ from asgi_correlation_id import correlation_id
 from loguru import logger
 
 
-from app.config.config import settings, LOG_DIR
+from app.config import settings
+from app.config.base import LOG_DIR
 from app.utils.timezone import timezone
 
 LOG_FORMAT: str = (

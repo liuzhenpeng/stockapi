@@ -1,35 +1,16 @@
-# -*- coding:utf-8 -*-
-"""
-@Created on : 2022/4/22 22:02
-@Author: binkuolo
-@Des: 基本配置文件
-"""
+from app.config.base import MyBaseSettings
+from typing import Literal
 
-import os
-from typing import List
-from pathlib import Path
-from pydantic.v1 import BaseSettings
-from typing import Any, Literal
-
-# 项目根目录
-BASE_PATH = Path(__file__).resolve().parent.parent
-
-# 日志文件路径
-LOG_DIR = BASE_PATH / 'logs'
-
-# 国际化文件目录
-LOCALE_DIR = BASE_PATH / 'locale'
-
-class Config(BaseSettings):
+class testConfig(MyBaseSettings):
     # 调试模式
     APP_DEBUG: bool = True
     # 项目信息
     VERSION: str = "0.0.1"
-    PROJECT_NAME: str = "fasdapi"
+    PROJECT_NAME: str = "fasdapi_test"
 
     # .env 数据库
     DATABASE_TYPE: Literal['mysql'] = 'mysql'
-    DATABASE_HOST: str = '10.11.12.68'
+    DATABASE_HOST: str = '192.168.3.40'
     DATABASE_PORT: int = 3306
     DATABASE_USER: str  = 'root'
     DATABASE_PASSWORD: str = 'Mysql@2018'
@@ -76,6 +57,3 @@ class Config(BaseSettings):
     I18N_DEFAULT_LANGUAGE: str = 'zh-CN'
     #  BaoStock 登录配置
     BAOSTOCK_LOGIN = False
-
-
-settings = Config()

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.config.config import settings
+from app.config import settings
 from app.core.router import router
 from app.api import stock
 from app.utils.log import setup_logging, set_custom_logfile

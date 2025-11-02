@@ -4,6 +4,7 @@ from collections.abc import AsyncGenerator
 from typing import Annotated
 from uuid import uuid4
 
+from app.config import settings
 from app.utils.log import log
 from fastapi import Depends
 from sqlalchemy import URL
@@ -14,7 +15,6 @@ from sqlalchemy.ext.asyncio import (
     create_async_engine,
 )
 
-from app.config.config import settings
 
 
 def create_database_url(*, unittest: bool = False) -> URL:
