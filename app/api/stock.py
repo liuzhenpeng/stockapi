@@ -39,6 +39,68 @@ async def getKline(code: str, start_date: str, end_date: str):
         log.error(f"获取k线数据失败,code:{code},start_date:{start_date},end_date:{end_date},error:{e}")
         return response_base.fail(res=CustomErrorCode.CAPTCHA_ERROR, data=e)
 
+@router.get("/queryForecastReport")
+async def queryForecastReport(code: str, start_date: str, end_date: str):
+    try:
+        #### 获取公司业绩预告 ####
+        rs_forecast = bs.query_forecast_report(code, start_date, end_date)
+        if rs_forecast and rs_forecast.error_code != "0":
+            # 使用 rs.error_code 作为业务错误码，rs.error_msg 作为错误描述
+            return response_base.fail(res=CustomResponse(code=int(rs_forecast.error_code), msg=rs_forecast.error_msg))
+        else:
+            data_list = []
+            if rs_forecast:
+                while (rs_forecast.error_code == '0') & rs_forecast.next():
+                    # 获取一条记录，将记录合并在一起
+                    data_list.append(rs_forecast.get_row_data())
+
+            return response_base.success(data=data_list)
+    except Exception as e:
+        log.error(f"获取业绩预告数据失败,code:{code},start_date:{start_date},end_date:{end_date},error:{e}")
+        return response_base.fail(res=CustomErrorCode.CAPTCHA_ERROR, data=e)
+
+
+@router.get("/queryPerformanceExpressReport")
+async def queryPerformanceExpressReport(code: str, start_date: str, end_date: str):
+    try:
+      #### 获取公司业绩快报 ####
+        rs = bs.query_performance_express_report(code, start_date=start_date, end_date=end_date)
+        if rs and rs.error_code != "0":
+            # 使用 rs.error_code 作为业务错误码，rs.error_msg 作为错误描述
+            return response_base.fail(res=CustomResponse(code=int(rs.error_code), msg=rs.error_msg))
+        else:
+            data_list = []
+            if rs:
+                while (rs.error_code == '0') & rs.next():
+                    # 获取一条记录，将记录合并在一起
+                    data_list.append(rs.get_row_data())
+
+            return response_base.success(data=data_list)
+    except Exception as e:
+        log.error(f"获取业绩快报数据失败,code:{code},start_date:{start_date},end_date:{end_date},error:{e}")
+        return response_base.fail(res=CustomErrorCode.CAPTCHA_ERROR, data=e)
+
+@router.get("/queryProfitData")
+async def queryProfitData(code: str, year: int, quarter: int):
+    try:
+       # 查询季频估值指标盈利能力
+       profit_list = []
+       rs_profit = bs.query_profit_data(code, year, quarter)
+       if rs_profit and rs_profit.error_code != "0":
+            # 使用 rs.error_code 作为业务错误码，rs.error_msg 作为错误描述
+            return response_base.fail(res=CustomResponse(code=int(rs_profit.error_code), msg=rs_profit.error_msg))
+       else:
+            if rs_profit:
+                while (rs_profit.error_code == '0') & rs_profit.next():
+                    # 获取一条记录，将记录合并在一起
+                    profit_list.append(rs_profit.get_row_data())
+
+            return response_base.success(data=profit_list)
+    except Exception as e:
+        log.error(f"获取季频估值指标盈利能力数据失败,code:{code},year:{year},quarter:{quarter},error:{e}")
+        return response_base.fail(res=CustomErrorCode.CAPTCHA_ERROR, data=e)
+
+
 
 def bsLogin():
     #### 登陆系统 ####
